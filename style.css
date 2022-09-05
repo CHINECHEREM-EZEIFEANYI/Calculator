@@ -10,7 +10,9 @@ body {
     padding: 0;
     background: linear-gradient(to right, #dfdbdb, rgb(97, 94, 95));
 }
+
 .calculator-grid {
+    background-color: #3d4543;
     display: grid;
     justify-content: center;
     align-items: center;

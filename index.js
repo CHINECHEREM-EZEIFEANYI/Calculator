@@ -1,0 +1,7 @@
+const numberButtons = document.querySelectorAll('[number]')
+const operationButtons = document.querySelectorAll('[operation]')
+const equalsButton = document.querySelector('[equals]')
+const deleteButton = document.querySelector('[delete]')
+const allClearButton = document.querySelector('[all-clear]')
+const previousOperandTextElement = document.querySelector('[previous-operand]')
+const currentOperandTextElement = document.querySelector('[current-operand]')

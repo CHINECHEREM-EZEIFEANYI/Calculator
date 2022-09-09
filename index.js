@@ -34,7 +34,7 @@ equalsButton.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
-clear() {
+clear() ={
     this.currentOperand = ''
     this.previousOperand = ''
     this.operation = undefined

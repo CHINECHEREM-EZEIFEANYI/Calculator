@@ -39,6 +39,12 @@ allClearButton.addEventListener('click', button => {
   calculator.updateDisplay()
 })
 
+deleteButton.addEventListener('click', button => {
+    calculator.delete()
+    calculator.updateDisplay()
+})
+
+
 clear() ={
     this.currentOperand = ''
     this.previousOperand = ''
@@ -46,7 +52,8 @@ clear() ={
     
 }
 
-delete() {
+delete () {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1)
 }
 
 displayNumber(number) {
@@ -94,4 +101,12 @@ compute() {
 
 
 updateDisplay() {
+    this.currentOperandTextElement.innerText =
+        this.getDisplayNumber(this.currentOperand)
+    if (this.operation != null) {
+        this.previousOperandTextElement.innerText =
+            `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+    } else {
+        this.previousOperandTextElement.innerText = ''
+    }
 }

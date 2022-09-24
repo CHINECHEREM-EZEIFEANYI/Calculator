@@ -31,7 +31,7 @@ body {
     background-color: #a9a9a9;
 }
 .span-two {
-    grid-column: span 2;
+    grid-row-start: span 2;
     color: #adf802;
     background-color: rgba(139, 0, 139, 0.8);
 }

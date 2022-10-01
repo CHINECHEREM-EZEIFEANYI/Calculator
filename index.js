@@ -59,16 +59,6 @@ compute() {
 
 }
 
-    updateDisplay() {
-        this.currentOperandTextElement.innerText =
-            this.getDisplayNumber(this.currentOperand)
-        if (this.operation != null) {
-            this.previousOperandTextElement.innerText =
-                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
-        } else {
-            this.previousOperandTextElement.innerText = ''
-        }
-    }
 
 getDisplayNumber(number) {
     const stringNumber = number.toString
@@ -85,10 +75,27 @@ getDisplayNumber(number) {
     } else {
         return integerDisplay
     }
-}
+    }
+    updateDisplay() {
+        this.currentOperandTextElement.innerText =
+            this.getDisplayNumber(this.currentOperand)
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText =
+                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+        } else {
+            this.previousOperandTextElement.innerText = ''
+        }
+    }
 
 };
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const numberButtons = document.querySelectorAll('[number]')
+const operationButtons = document.querySelectorAll('[operation]')
+const equalsButton = document.querySelector('[equals]')
+const deleteButton = document.querySelector('[delete]')
+const allClearButton = document.querySelector('[all-clear]')
+const previousOperandTextElement = document.querySelector('[previous-operand]')
+const currentOperandTextElement = document.querySelector('[current-operand]')
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -124,7 +131,7 @@ document.addEventListener('keydown', function (event) {
     let patternForOperators = /[+\-*\/]/g
     if (event.key.match(patternForNumbers)) {
         event.preventDefault();
-        calculator.appendNumber(event.key)
+        calculator.displayNumber(event.key)
         calculator.updateDisplay()
     }
     if (event.key === '.') {
@@ -155,10 +162,3 @@ document.addEventListener('keydown', function (event) {
 
 });
 
-const numberButtons = document.querySelectorAll('[number]')
-const operationButtons = document.querySelectorAll('[operation]')
-const equalsButton = document.querySelector('[equals]')
-const deleteButton = document.querySelector('[delete]')
-const allClearButton = document.querySelector('[all-clear]')
-const previousOperandTextElement = document.querySelector('[previous-operand]')
-const currentOperandTextElement = document.querySelector('[current-operand]')

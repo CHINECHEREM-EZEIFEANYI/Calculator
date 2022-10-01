@@ -112,17 +112,17 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener('click', button => {
-    calculator.compute()
+    calculator.compute(button.innerText)
     calculator.updateDisplay()
 })
 
 allClearButton.addEventListener('click', button => {
-  calculator.clear()
+    calculator.clear(button.innerText)
   calculator.updateDisplay()
 })
 
 deleteButton.addEventListener('click', button => {
-    calculator.delete()
+    calculator.delete(button.innerText)
     calculator.updateDisplay()
 })
 
@@ -136,7 +136,7 @@ document.addEventListener('keydown', function (event) {
     }
     if (event.key === '.') {
         event.preventDefault();
-        calculator.appendNumber(event.key)
+        calculator.displayNumber(event.key)
         calculator.updateDisplay()
     }
     if (event.key.match(patternForOperators)) {
